@@ -5,5 +5,7 @@ export default function initFetchBitcoin() {
       const btcPreco = document.querySelector(".btc-preco");
       btcPreco.innerText = (1000 / data.BRL.sell).toFixed(4);
     })
-    .catch((erro) => console.error(erro));
+    .catch((error) => {
+      throw new Error(`Erro na requisição: ${error}`);
+    });
 }
